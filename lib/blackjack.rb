@@ -28,8 +28,18 @@ def initial_round
   return round_one
 end
 
-def hit?
-  # code hit? here
+def hit?(card_total)
+  prompt_user
+  input = get_user_input
+  case input
+  when "s"
+    return card_total
+  when "h"
+    return card_total += deal_card
+  else
+    invalid_command
+    prompt_user
+    input = get_user_input
 end
 
 def invalid_command
